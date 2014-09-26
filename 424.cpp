@@ -110,7 +110,7 @@ ostream& operator<<(ostream& out, const bign& c)
 }
 int main()
 {
-#ifndef online_judge
+#ifndef ONLINE_JUDGE
     freopen("424.in", "r", stdin);
 #endif
     bign sum;
