@@ -31,7 +31,7 @@ int main()
 #endif
     string s;
     bool start = true;
-    char buf[2000];
+    //char buf[2000];
     int j = 0;
     int c;
     while ((c = getc(stdin)) != EOF)
@@ -39,23 +39,21 @@ int main()
         {
             if (c == '\"' && start)
             {
-                buf[j++] = '`';
-                buf[j++] = '`';
+                //buf[j++] = '`';
+                //buf[j++] = '`';
+                printf("``");
                 start = !start;
             }
             else if (c == '\"')
             {
-                buf[j++] = '\'';    
-                buf[j++] = '\'';    
+                printf("\'\'");
                 start = !start;
             }
             else
             {
-                buf[j++] = c;
+                printf("%c", c);
             }
         }
     }
-    buf[j] = 0;
-    printf("%s", buf);
     return 0;
 }
