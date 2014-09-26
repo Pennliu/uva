@@ -6,8 +6,8 @@
  *    Description:  
  *
  *        Version:  1.0
- *        Created:  2014年09月24日 21时13分43秒
- *       Revision:  none
+ *        Created:  2014年09月26日 21时21分47秒
+ *       Revision:  none 
  *       Compiler:  gcc
  *
  *         Author:  loop (), 
@@ -24,46 +24,49 @@
 
 using namespace std;
 
-static char a[110];
+const int max_n = 110;
 struct bign
 {
     int len;
-    int s[110];
+    int b[max_n];
     bign()
     {
-        memset(s, 0, sizeof(s)); 
+        memset(b, 0, sizeof(b));
         len = 1;
     }
-    bign operator=(const char* num)
+    bign operator=(const char* str)
     {
-        len = strlen(num);
-        for (int i = 0; i < len; i++) s[i] = num[len - 1 - i] - '0';
+        len = strlen(str);
+        for (int i = 0; i < len; i++)
+        {
+            b[i] = str[len - 1 - i] - '0';
+        }
         return *this;
     }
-    bign operator=(int num)
+    bign operator=(int n)
     {
-        char a[110];
-        sprintf(a, "%d", num);
-        *this = a;
+        char buf[max_n];
+        sprintf(buf, "%d", n);
+        *this = buf;
         return *this;
     }
-    bign(const char* num)
+    bign(const char* str)
     {
-        *this = num;
+        *this = str;
     }
-    bign(int num)
+    bign(int n)
     {
-        *this = num;
+        *this = n;
     }
-    bign operator+(const bign& b) const
+    bign operator+(const bign& a) const
     {
         bign c;
         c.len = 0;
-        int l = max(len, b.len);
-        for (int i = 0, q = 0; i < l || q; i++)
+
+        for (int i = 0, q = 0; i < max(len, a.len) || q; i++)
         {
-            int t = s[i] + b.s[i] + q;
-            c.s[c.len++] = t % 10;
+            int t = b[i] + a.b[i] + q;
+            c.b[c.len++] = t % 10;
             q = t / 10;
         }
         return c;
@@ -73,51 +76,52 @@ struct bign
         *this = *this + a;
         return *this;
     }
+    string str() const
+    {
+        string res = "";
+        for (int i = 0; i < len; i++)
+        {
+            res = char(b[i] + '0') + res; 
+        }
+        if (res == "") res = "0";
+        return res;
+    }
     bool operator==(const bign& a) const
     {
         if (len != a.len) return false;
-        for (int i = 0; i < len; i++) 
+        for (int i = 0; i < len; i++)
         {
-            if (s[i] != a.s[i]) return false;
+            if (b[i] != a.b[i]) return false;
         }
         return true;
     }
-
-    string str() const
-    {
-        string str = "";
-        for (int i = 0; i < len; i++) str = (char)(s[i] + '0') + str;
-        if (str == "") str = "0";
-        return str;
-    }
 };
-ostream& operator<<(ostream& out, const bign& a)
-{
-    out << a.str();
-    return out; 
-}
-istream& operator>>(istream& in, bign& a)
+istream& operator>>(istream& in, bign& c) 
 {
     string str;
-    cin >> str;
-    a = str.c_str();
+    in >> str;
+    c = str.c_str();
     return in;
+}
+ostream& operator<<(ostream& out, const bign& c)
+{
+    out << c.str();
+    return out;
 }
 int main()
 {
-#ifndef ONLINE_JUDGE
+#ifndef online_judge
     freopen("424.in", "r", stdin);
-    freopen("424.out", "w", stdout);
 #endif
     bign sum;
-    bign n;
-    bign zero(0);
-    while (cin >> n)
-    {
-        if (zero == n) break;
-        sum += n;
-    }
-    cout << sum.str() << endl;
+    bign a;
+    bign z;
 
+    while (cin >> a)
+    {
+        if (a == z) break;
+        sum += a;
+    }
+    cout << sum << endl;
     return 0;
 }
