@@ -33,17 +33,17 @@ int main()
     bool start = true;
     char buf[2000];
     int j = 0;
-    while (std::getline(cin, s))
+    int c;
+    while ((c = getc(stdin)) != EOF)
     {
-        for (int i = 0; i < s.size(); i++)
         {
-            if (s[i] == '\"' && start)
+            if (c == '\"' && start)
             {
                 buf[j++] = '`';
                 buf[j++] = '`';
                 start = !start;
             }
-            else if (s[i] == '\"')
+            else if (c == '\"')
             {
                 buf[j++] = '\'';    
                 buf[j++] = '\'';    
@@ -51,11 +51,11 @@ int main()
             }
             else
             {
-                buf[j++] = s[i];
+                buf[j++] = c;
             }
         }
-        buf[j++] = '\n';
     }
+    buf[j] = 0;
     printf("%s", buf);
     return 0;
 }
