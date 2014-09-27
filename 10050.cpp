@@ -28,7 +28,7 @@ static int party[110];
 static int party_cnt[110];
 int main()
 {
-#ifndef online_judge
+#ifndef ONLINE_JUDGE
     freopen("10050.in", "r", stdin);
 #endif
     int test_case;
