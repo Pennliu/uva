@@ -6,7 +6,7 @@
  *    Description:  
  *
  *        Version:  1.0
- *        Created:  2014年09月26日 22时48分20秒
+ *        Created:  2014年09月28日 21时55分23秒
  *       Revision:  none
  *       Compiler:  gcc
  *
@@ -29,31 +29,16 @@ int main()
 #ifndef ONLINE_JUDGE
     freopen("272.in", "r", stdin);
 #endif
-    string s;
-    bool start = true;
-    //char buf[2000];
-    int j = 0;
     int c;
+    bool f(true);
     while ((c = getc(stdin)) != EOF)
     {
+        if (c == '\"')
         {
-            if (c == '\"' && start)
-            {
-                //buf[j++] = '`';
-                //buf[j++] = '`';
-                printf("``");
-                start = !start;
-            }
-            else if (c == '\"')
-            {
-                printf("\'\'");
-                start = !start;
-            }
-            else
-            {
-                printf("%c", c);
-            }
+            printf("%s", f ? "``" : "\'\'");
+            f = !f;
         }
+        else printf("%c", c);
     }
     return 0;
 }
