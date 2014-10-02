@@ -34,7 +34,7 @@ void top_stack_elm_to_a(int a)
     int stack_index = block_index[a];
     while (st[stack_index][top[stack_index]] != a)
     {
-        int elm = st[stack_index][stack_index];
+        int elm = st[stack_index][top[stack_index]--];
         st[elm][++top[elm]] = elm;
         block_index[elm] = elm;
     }
