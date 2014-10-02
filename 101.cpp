@@ -63,7 +63,7 @@ void stack_a_to_b(int a, int b)
 }
 int main()
 {
-#ifndef online_judge
+#ifndef ONLINE_JUDGE
     freopen("101.in", "r", stdin);
 #endif
     int n;
@@ -83,7 +83,7 @@ int main()
             break;
         }
         scanf("%d %s %d", &a, action, &b);
-        printf("%s %d %s %d\n", cmd, a, action, b);
+        //printf("%s %d %s %d\n", cmd, a, action, b);
         if (block_index[a] == block_index[b]) continue;
         if (a == b) continue;
         if (strcmp(cmd, "move") == 0)
