@@ -24,7 +24,7 @@
 
 using namespace std;
 
-const int max_n = 25;  //[1, 24]
+const int max_n = 30;  //[1, 24]
 static int block_index[max_n];
 static int st[max_n][max_n];
 static int top[max_n];
