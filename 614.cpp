@@ -1,0 +1,68 @@
+/*
+ * =====================================================================================
+ *
+ *       Filename:  614.cpp
+ *
+ *    Description:  
+ *
+ *        Version:  1.0
+ *        Created:  2014年10月02日 20时20分52秒
+ *       Revision:  none
+ *       Compiler:  gcc
+ *
+ *         Author:  loop (), 
+ *   Organization:  
+ *
+ * =====================================================================================
+ */
+#include <stdlib.h>
+#include <iostream>
+#include <cstdio>
+#include <vector>
+#include <string>
+#include <cstring>
+
+using namespace std;
+
+int main()
+{
+#ifndef ONLINE_JUDGE
+    freopen("614.in", "r", stdin);
+#endif
+    int n;
+    scanf("%d", &n);
+    while (n--)
+    {
+        char buf[129];
+        char s[129];
+        int top = -1;
+        bool flag(true);
+        scanf("%s", buf);
+        for (int i = 0; i < strlen(buf); i++)
+        {
+            if (buf[i] == '(' || buf[i] == '[') s[++top] = buf[i];
+            else if (buf[i] == ')')
+            {
+                if (top >= 0 && s[top] == '(') top--;
+                else 
+                {
+                    flag = false;
+                    break;
+                }
+            }
+            else if (buf[i] == ']')
+            {
+                if (top >= 0 && s[top] == '[') top--;
+                else
+                {
+                    flag = false;
+                    break;
+                }
+            }
+        }
+        if (flag) printf("Yes");
+        else printf("No");
+        printf("\n");
+    }
+    return 0;
+}
