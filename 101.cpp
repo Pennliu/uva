@@ -67,10 +67,11 @@ int main()
     freopen("101.in", "r", stdin);
 #endif
     int n;
-    scanf("%d", &n);
+    while (~scanf("%d", &n))
+    {
     for (int i = 0; i < n; i++)
         block_index[i] = i;
-    for (int i = 0; i < n; i++) st[i][++top[i]] = i;
+    for (int i = 0; i < n; i++) {top[i] = 0;st[i][++top[i]] = i;};
 
     char cmd[5];
     char action[5];
@@ -120,6 +121,7 @@ int main()
             printf(" %d", st[i][j]);
         }
         printf("\n");
+    }
     }
     return 0;
 }
