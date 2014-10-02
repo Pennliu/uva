@@ -31,14 +31,16 @@ int main()
 #endif
     int n;
     scanf("%d", &n);
+    string tmp;
+    getline(cin, tmp);
     while (n--)
     {
-        char buf[129];
         char s[129];
         int top = -1;
         bool flag(true);
-        scanf("%s", buf);
-        for (int i = 0; i < strlen(buf); i++)
+        string buf;
+        std::getline(cin, buf);
+        for (int i = 0; i < buf.size(); i++)
         {
             if (buf[i] == '(' || buf[i] == '[') s[++top] = buf[i];
             else if (buf[i] == ')')
