@@ -60,6 +60,7 @@ int main()
                 }
             }
         }
+        if (top >= 0) flag = false;
         if (flag) printf("Yes");
         else printf("No");
         printf("\n");
