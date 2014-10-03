@@ -79,7 +79,7 @@ enum token check(int sum, int target)
 
 int main()
 {
-#ifndef online_judge
+#ifndef ONLINE_JUDGE
     freopen("112.in", "r", stdin);
 #endif
     int target;
