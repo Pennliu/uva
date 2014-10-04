@@ -44,6 +44,8 @@ static void init()
     memset(visit, 0, sizeof(visit));
     //memset(pic, 0, sizeof(pic));
     cnt = 0;
+    for (int i = 0; i <= h; i++) visit[i][0] = true;
+    for (int i = 0; i <= w; i++) visit[0][w] = true;
 }
 struct InDex
 {
@@ -74,6 +76,7 @@ static void bfs(int i, int j)
                 xx.x = x;
                 xx.y = y;
                 pic[x][y] = '*';
+                q.push(xx);
             }
         }
     }
@@ -107,7 +110,8 @@ static void solve()
             {
                 numbers = 0;
                 dfs(i, j);
-                num[cnt++] = numbers;
+                if (numbers > 0 && numbers < 7)
+                    num[cnt++] = numbers;
             }
         }
     }
@@ -128,6 +132,7 @@ static void output()
         }
         else printf(" %d", num[i]);
     }
+    if (cnt == 0) printf("0");
     printf("\n\n");
 }
 int main()
