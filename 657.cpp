@@ -138,7 +138,8 @@ int main()
     while (scanf("%d%d", &w, &h))
     {
         if (!w && !h) break;
-        getchar();
+        string tmp;
+        getline(cin, tmp);
         init();
         input();
         solve();
