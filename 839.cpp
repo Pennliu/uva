@@ -37,7 +37,7 @@ int tree_build()
 
 int main()
 {
-#ifndef online_judge
+#ifndef ONLINE_JUDGE
     freopen("839.in", "r", stdin);
 #endif
     int test_case;
