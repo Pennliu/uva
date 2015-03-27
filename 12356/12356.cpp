@@ -21,45 +21,37 @@
 #include <vector>
 #include <string>
 #include <cstring>
-#include <set>
 
 using namespace std;
 
-set<int> container;
-set<int>::iterator it;
+int left1[100005], right2[100005];
 int main()
 {
 #ifndef ONLINE_JUDGE
     freopen("in", "r", stdin);
 #endif
     int s, b;
-    while (cin >> s >> b && (s || b))
+    int l, r;
+    while (scanf("%d %d", &s, &b) && (s || b))
     {
-        container.clear();
-        for (int i = 0; i <= s+1; i++)
+        for (int i = 1; i <= s; i++)
         {
-            container.insert(i);
+            left1[i] = i - 1;
+            right2[i] = i + 1;
         }
+        left1[1] = -1;
+        right2[s] = -1;
         while (b--)
         {
-            int l, r;
-            cin >> l >> r;
-            it = container.find(l);
-            it--;
-            if (*it) cout << *it;
-            else cout << "*";
-            cout << " ";
-            it = container.find(r);
-            it++;
-            if (*it != s+1) cout << *it;
-            else cout << "*";
-            cout << endl;
-            for (int i = l; i <= r; i++)
-            {
-                if (container.find(i) != container.end()) container.erase(i);
-            }
+            scanf("%d %d", &l, &r);
+            left1[right2[r]] = left1[l];
+            right2[left1[l]] = right2[r];
+            if (left1[l] != -1) printf("%d ", left1[l]);
+            else printf("* ");
+            if (right2[r] != -1) printf("%d\n", right2[r]);
+            else printf("*\n");
         }
-        cout << "-" << endl;
+        printf("-\n");
     }
     return 0;
 }
