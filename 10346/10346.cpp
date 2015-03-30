@@ -8,11 +8,11 @@ int main()
 #ifndef ONLIEN_JUDGE
 	freopen("in", "r", stdin);
 #endif
-	int n, k;
+	long long n, k;
 	while (cin >> n >> k)
 	{
-		int cnt = 0;
-		int butts = 0;
+		long long cnt = 0;
+		long long butts = 0;
 		while (n)
 		{
 			cnt += n;
