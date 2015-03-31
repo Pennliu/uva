@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-#ifndef ONLIEN_JUDGE
+#ifndef ONLINE_JUDGE
 	freopen("in", "r", stdin);
 #endif
 	long long n, k;
