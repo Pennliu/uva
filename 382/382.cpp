@@ -7,6 +7,7 @@ using namespace std;
 
 string check(int num)
 {
+	if (num == 1) return "DEFICIENT";
 	vector<int> v;
 	v.push_back(1);
 	for (int i = 2; i < num; i++)
@@ -35,7 +36,7 @@ int main()
 	while (cin >> n && n)
 	{
 		//cout << n << " " << check(n) << endl;;
-		printf("%5d ", n);
+		printf("%5d  ", n);
 		cout << check(n) << endl;
 	}
 	cout << "END OF OUTPUT" << endl;
