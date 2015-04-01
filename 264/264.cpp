@@ -30,7 +30,7 @@ int main()
 			r = cnt + 1 - index;
 			l = cnt + 1 - r;
 		}
-		printf("TERM %d is %d/%d\n", n, l, r);
+		printf("TERM %d IS %d/%d\n", n, l, r);
 	}
 	return 0;
 }
