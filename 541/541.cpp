@@ -58,7 +58,7 @@ int main()
 			}
 			if (f) break;
 		}
-		if (f) printf("Change bit (%d,%d)\n", x, y);
+		if (f) printf("Change bit (%d,%d)\n", x+1, y+1);
 		else cout << "Corrupt" << endl;
 	}
 	return 0;
