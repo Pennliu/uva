@@ -97,7 +97,7 @@ void solve()
 }
 int main()
 {
-#ifndef _ONLINE_JUDGE_
+#ifndef ONLINE_JUDGE
     freopen("in", "r", stdin);
 #endif
 /* 1. input
