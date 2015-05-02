@@ -63,23 +63,20 @@ void solve()
                     index = index - 1;
                     continue;
                 }
-                else
+                break;
+            }
+            if (index != tmp_index)
+            {
+                s_piles[index].push_back(c);
+                s_piles[tmp_index].pop_back();
+                if (s_piles[tmp_index].empty())
                 {
-                    if (index != tmp_index)
-                    {
-                        s_piles[index].push_back(c);
-                        s_piles[tmp_index].pop_back();
-                        if (s_piles[tmp_index].empty())
-                        {
-                            piles::iterator it = s_piles.begin() + tmp_index;
-                            s_piles.erase(it);
-                            last_index--;
-                        }
-                    }
-                    index++;
-                    break;
+                    piles::iterator it = s_piles.begin() + tmp_index;
+                    s_piles.erase(it);
+                    last_index--;
                 }
             }
+            index++;
         }
     }
     int size = s_piles.size();
