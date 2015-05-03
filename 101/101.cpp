@@ -78,7 +78,7 @@ void blocks_stack_a_to_b(int a, int b)
         t = s.top();
         s.pop();
         b_b.push_back(t);
-        s_location[t] = b;
+        s_location[t] = location_b;
     }
 }
 
